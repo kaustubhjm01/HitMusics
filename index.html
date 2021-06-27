@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HitMusics</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <!-- <img src="images/logo.png" alt=""> -->
+            <div class="logo">
+                Hit<span id="inspan">Musics</span>
+            </div>
+            <ul class="ul">
+                <!-- <i class="material-icons"></i> -->
+
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">About</a></li>
+                <li> <a href="#">Products</a></li>
+                <li> <a href="#">ContactUs</a></li>
+
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="leftcolumn">
+                <h1>THE <br> REAL <br> SOUND</h1>
+                <!-- <img src="images/image.png" id="headphones" alt=""> -->
+            </div>
+            <div class="rightcolumn">
+                <h1>TOP HITS</h1>
+                <p>Levianth-Axol-Remember</p>
+                <div class="songs">
+                    <p id="ptext1">Music is Not Playing</p>
+                    <img src="images/play.png" onclick="playmusic(this)" id="icon" alt="PlayButton">
+                </div>
+                <p>Tobu-Sound-of-Goodbye</p>
+                <div class="songs">
+                    <p id="ptext2">Music is Not Playing</p>
+                    <img src="images/play.png" onclick="playmusic(this)" id="icon2" alt="PlayButton">
+                </div>
+                <p>Unison-Aperture</p>
+                <div class="songs">
+                    <p id="ptext3">Music is Not Playing</p>
+                    <img src="images/play.png" onclick="playmusic(this)" id="icon3" alt="PlayButton">
+                </div>
+                <p>Background Track 1</p>
+                <div class="songs">
+                    <p id="ptext4">Music is Not Playing</p>
+                    <img src="images/play.png" onclick="playmusic(this)" id="icon4" alt="PlayButton">
+                </div>
+                <p>Background Track 2</p>
+                <div class="songs">
+                    <p id="ptext5">Music is Not Playing</p>
+                    <img src="images/play.png" onclick="playmusic(this)" id="icon5" alt="PlayButton">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <audio id="mysong" class="mus">
+        <source src="musics/Levianth-Axol-Remember.mp3" type="audio/mp3">
+    </audio>
+    <audio id="mysong1" class="mus">
+        <source src="musics/Tobu-Sound-of-Goodbye-NCS-Release.mp3" type="audio/mp3">
+    </audio>
+    <audio id="mysong2">
+        <source src="musics/Unison-Aperture-NCS-Release.mp3" type="audio/mp3">
+    </audio>
+    <audio id="mysong3">
+        <source src="musics/1-Free-Background-Music.mp3" type="audio/mp3">
+    </audio>
+    <audio id="mysong4">
+        <source src="musics/3-Free-Background-Music.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        let mySong = document.getElementById("mysong");
+        let mySong1 = document.getElementById("mysong1");
+        let mySong2 = document.getElementById("mysong2");
+        let mySong3 = document.getElementById("mysong3");
+        let mySong4 = document.getElementById("mysong4");
+        let ptext1 = document.getElementById("ptext1");
+        let ptext2 = document.getElementById("ptext2");
+        let ptext3 = document.getElementById("ptext3");
+        let ptext4 = document.getElementById("ptext4");
+        let ptext5 = document.getElementById("ptext5");
+        let ob = document.getElementsByClassName("mus");
+        function playmusic(ele) {
+            if (ele.id == "icon") {
+                controller(ele, mySong, ptext1);
+                console.log("icon");
+                // console.log(ob);
+            }
+            else if (ele.id == "icon2") {
+                controller(ele, mySong1, ptext2);
+                console.log("icon2");
+            }
+            else if (ele.id == "icon3") {
+                controller(ele, mySong2, ptext3);
+                console.log("icon3");
+            }
+            else if (ele.id == "icon4") {
+                controller(ele, mySong3, ptext4);
+                console.log("icon4");
+            }
+            else if (ele.id == "icon5") {
+                controller(ele, mySong4, ptext5);
+                console.log("icon5");
+            }
+
+
+
+        }
+        function controller(ele, song, ptext) {
+
+            if (song.paused) {
+                song.play();
+                ele.src = "images/pause.png";
+                ptext.innerHTML = "Music is Playing";
+                ptext.style.color = "darkblue";
+            }
+            else {
+                ele.src = "images/play.png";
+                song.pause();
+                ptext.innerHTML = "Music is Not Playing";
+                ptext.style.color = "black";
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
